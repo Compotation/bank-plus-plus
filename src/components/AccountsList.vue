@@ -1,9 +1,11 @@
 <template>
   <table>
-    <tr>
-      <th>Name of Account</th>
-      <th>Balance</th>
-    </tr>
+    <thead>
+      <tr>
+        <th>Name of Account</th>
+        <th>Balance</th>
+      </tr>
+    </thead>
     <tbody>
       <tr v-for="(account, index) in accounts" :key="index">
         <td>{{ account.name }}</td>
