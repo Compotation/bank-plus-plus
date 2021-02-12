@@ -1,14 +1,17 @@
 <template>
   <accounts-list />
+  <transactions />
 </template>
 
 <script>
 import AccountsList from "./components/AccountsList.vue";
+import Transactions from "./components/Transactions.vue";
 
 export default {
   name: "App",
   components: {
     AccountsList,
+    Transactions,
   },
 };
 </script>
