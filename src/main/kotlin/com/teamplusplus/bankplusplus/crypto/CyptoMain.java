@@ -5,7 +5,7 @@ public class CyptoMain {
     public static void main(String[] args) {
         Crypto crypto = new Crypto();
 
-        String data = ""; // modify data here
+        String data = "Quincy Holmer"; // modify data here
 
         String enc = new String(crypto.encrypt(data.getBytes()));
         String dec = new String(crypto.decrypt(enc.getBytes()));
