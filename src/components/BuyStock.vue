@@ -1,5 +1,5 @@
 <template>
-  <label for="stock-select"></label>
+  <label for="stock-select">Select a stock to buy:</label>
 
   <select id="stock-select" name="stocks">
     <option value="">Please select a stock</option>
