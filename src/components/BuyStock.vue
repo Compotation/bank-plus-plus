@@ -8,6 +8,8 @@
       {{ stock }}
     </option>
   </select>
+
+  <button>Buy</button>
 </template>
 
 <script>
