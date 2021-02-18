@@ -1,4 +1,4 @@
-FROM adoptopenjdk:11 as buildspring
+FROM amazoncorretto:11-alpine-jdk as buildspring
 WORKDIR /workspace/app
 
 COPY build.gradle.kts .
@@ -10,7 +10,7 @@ COPY src src
 RUN ./gradlew build -x test
 
 
-FROM adoptopenjdk:11
+FROM amazoncorretto:11-alpine-jdk
 WORKDIR /opt/app
 
 COPY --from=buildspring /workspace/app/build/libs/ /opt/app/
