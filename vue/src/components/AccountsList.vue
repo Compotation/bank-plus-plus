@@ -8,7 +8,11 @@
     </thead>
     <tbody>
       <tr v-for="(account, index) in accounts" :key="index">
-        <td>{{ account.name }}</td>
+        <td>
+          <router-link :to="'/accounts/' + account.name">{{
+            account.name
+          }}</router-link>
+        </td>
         <td>{{ account.balance }}</td>
       </tr>
     </tbody>
