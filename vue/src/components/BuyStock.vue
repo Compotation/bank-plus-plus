@@ -1,23 +1,25 @@
 <template>
-  <label for="stock-select">Select a stock to buy:</label>
-  <select id="stock-select" name="stocks">
-    <option value="">Please select a stock</option>
+  <div class="buy-container">
+    <label for="stock-select">Select a stock to buy:</label>
+    <select id="stock-select" name="stocks">
+      <option value="">Please select a stock</option>
 
-    <option v-for="stock in stocks" :key="stock" :value="stock">
-      {{ stock }}
-    </option>
-  </select>
+      <option v-for="stock in stocks" :key="stock" :value="stock">
+        {{ stock }}
+      </option>
+    </select>
 
-  <label for="account-select">Account:</label>
-  <select id="account-select" name="accounts">
-    <option value="">Please select an account</option>
+    <label for="account-select">Account:</label>
+    <select id="account-select" name="accounts">
+      <option value="">Please select an account</option>
 
-    <option v-for="account in accounts" :key="account" :value="account">
-      {{ account }}
-    </option>
-  </select>
+      <option v-for="account in accounts" :key="account" :value="account">
+        {{ account }}
+      </option>
+    </select>
 
-  <button>Buy</button>
+    <button>Buy</button>
+  </div>
 </template>
 
 <script>
@@ -32,4 +34,10 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.buy-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+</style>
