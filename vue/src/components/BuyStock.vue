@@ -3,7 +3,7 @@
   <select id="stock-select" name="stocks">
     <option value="">Please select a stock</option>
 
-    <option v-for="stock in stocks" :key="stock" value="{{stock}}">
+    <option v-for="stock in stocks" :key="stock" :value="stock">
       {{ stock }}
     </option>
   </select>
