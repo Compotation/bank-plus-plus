@@ -7,6 +7,9 @@
       <li>
         <router-link to="/accounts">Accounts</router-link>
       </li>
+      <li>
+        <router-link to="/buy">Buy</router-link>
+      </li>
     </ul>
   </nav>
 </template>
