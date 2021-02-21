@@ -1,12 +1,12 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "@/views/Home";
-import Accounts from "@/views/Accounts";
-import AccountView from "@/views/AccountView";
+import ViewAllAccounts from "@/views/ViewAllAccounts";
+import ManageAccount from "@/views/ManageAccount";
 
 const routes = [
   { path: "/", component: Home },
-  { path: "/accounts", component: Accounts },
-  { path: "/accounts/:id", component: AccountView },
+  { path: "/accounts", component: ViewAllAccounts },
+  { path: "/accounts/:id", component: ManageAccount },
 ];
 
 const router = createRouter({
