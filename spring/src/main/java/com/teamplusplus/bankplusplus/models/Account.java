@@ -13,4 +13,16 @@ public class Account {
     this.balance = 0.0;
     this.transactionList = new ArrayList<>();
   }
+
+  public List<Transaction> getTransactionList() {
+    return transactionList;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public Double getBalance() {
+    return balance;
+  }
 }

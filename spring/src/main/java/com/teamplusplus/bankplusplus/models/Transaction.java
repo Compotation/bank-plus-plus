@@ -12,4 +12,16 @@ public class Transaction {
     this.amount = amount;
     this.merchant = merchant;
   }
+
+  public LocalDateTime getDate() {
+    return date;
+  }
+
+  public Double getAmount() {
+    return amount;
+  }
+
+  public String getMerchant() {
+    return merchant;
+  }
 }
