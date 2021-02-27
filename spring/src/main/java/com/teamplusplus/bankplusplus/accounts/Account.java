@@ -8,9 +8,9 @@ public class Account {
   private final String name;
   private final Double balance;
 
-  public Account(String name, Double balance) {
+  public Account(String name) {
     this.name = name;
-    this.balance = balance;
+    this.balance = 0.0;
     this.transactionList = new ArrayList<>();
   }
 }
