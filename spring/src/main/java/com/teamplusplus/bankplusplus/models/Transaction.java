@@ -7,9 +7,10 @@ public class Transaction {
   private final Double amount;
   private final String stock;
 
-  public Transaction(Double amount, String stock) {
+  public Transaction(String stock) {
     this.date = LocalDateTime.now();
-    this.amount = amount;
+    // TODO lookup stock price
+    this.amount = 0.0;
     this.stock = stock;
   }
 
