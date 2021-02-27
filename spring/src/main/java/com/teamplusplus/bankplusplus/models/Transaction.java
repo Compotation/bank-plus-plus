@@ -7,10 +7,10 @@ public class Transaction {
   private final Double amount;
   private final String stock;
 
-  public Transaction(Double amount, String merchant) {
+  public Transaction(Double amount, String stock) {
     this.date = LocalDateTime.now();
     this.amount = amount;
-    this.stock = merchant;
+    this.stock = stock;
   }
 
   public LocalDateTime getDate() {
