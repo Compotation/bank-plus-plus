@@ -29,4 +29,8 @@ public class Account {
   public int numberOfTransactions() {
     return transactionList.size();
   }
+
+  public void buyStock(String stockName) {
+    transactionList.add(0, new Transaction(stockName));
+  }
 }
