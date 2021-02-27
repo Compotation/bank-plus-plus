@@ -5,12 +5,12 @@ import java.time.LocalDateTime;
 public class Transaction {
   private final LocalDateTime date;
   private final Double amount;
-  private final String merchant;
+  private final String stock;
 
   public Transaction(Double amount, String merchant) {
     this.date = LocalDateTime.now();
     this.amount = amount;
-    this.merchant = merchant;
+    this.stock = merchant;
   }
 
   public LocalDateTime getDate() {
@@ -21,7 +21,7 @@ public class Transaction {
     return amount;
   }
 
-  public String getMerchant() {
-    return merchant;
+  public String getStock() {
+    return stock;
   }
 }
