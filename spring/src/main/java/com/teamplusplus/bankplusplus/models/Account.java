@@ -25,4 +25,8 @@ public class Account {
   public Double getBalance() {
     return balance;
   }
+
+  public int numberOfTransactions() {
+    return transactionList.size();
+  }
 }

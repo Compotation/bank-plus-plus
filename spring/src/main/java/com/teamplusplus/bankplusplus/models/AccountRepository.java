@@ -20,4 +20,8 @@ public class AccountRepository {
   public void addAccount(String name) {
     accounts.add(new Account(name));
   }
+
+  public Account getAccount(int id) {
+    return accounts.get(id);
+  }
 }
