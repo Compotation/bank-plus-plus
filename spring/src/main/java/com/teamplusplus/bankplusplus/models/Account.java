@@ -1,4 +1,4 @@
-package com.teamplusplus.bankplusplus.accounts;
+package com.teamplusplus.bankplusplus.models;
 
 import java.util.ArrayList;
 import java.util.List;
