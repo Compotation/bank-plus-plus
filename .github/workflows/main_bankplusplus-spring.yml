@@ -21,7 +21,7 @@ jobs:
       with:
         java-version: '11'
 
-    - name: Build with Maven
+    - name: Build with Gradle
       run: ./gradlew bootJar
       working-directory: spring
 
@@ -31,4 +31,4 @@ jobs:
         app-name: 'bankplusplus-spring'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_1ed13d1b6f804c9d976228b951274e6b }}
-        package: '${{ github.workspace }}/build/libs/*.jar'
+        package: '${{ github.workspace }}/spring/build/libs/*.jar'
