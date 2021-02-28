@@ -22,7 +22,8 @@ jobs:
         java-version: '11'
 
     - name: Build with Maven
-      run: mvn clean install
+      run: ./gradlew bootJar
+      working-directory: spring
 
     - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v2
@@ -30,4 +31,4 @@ jobs:
         app-name: 'bankplusplus-spring'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_1ed13d1b6f804c9d976228b951274e6b }}
-        package: '${{ github.workspace }}/target/*.jar'
+        package: '${{ github.workspace }}/build/libs/*.jar'
