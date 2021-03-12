@@ -1,9 +1,7 @@
 package com.teamplusplus.bankplusplus.controllers;
 
 import com.teamplusplus.bankplusplus.models.AccountRepository;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class TransactionController {
@@ -16,5 +14,10 @@ public class TransactionController {
   @GetMapping("/{accountId}/transactions/amount")
   public int showAmountOfTransactions(@PathVariable int accountId) {
     return accountRepository.getAccount(accountId).numberOfTransactions();
+  }
+
+  @PostMapping("/{accountId}/transactions")
+  public void addTransaction(@PathVariable int accountId, @RequestParam String stock) {
+    accountRepository.getAccount(accountId).buyStock(stock);
   }
 }
