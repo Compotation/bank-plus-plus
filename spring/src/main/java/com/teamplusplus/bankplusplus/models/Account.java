@@ -31,6 +31,10 @@ public class Account {
   }
 
   public void buyStock(String stockName) {
-    transactionList.add(0, new Transaction(stockName));
+    transactionList.add(0, new StockTransaction(stockName));
+  }
+
+  public void depositMoney(double amount) {
+    transactionList.add(0, new Transaction(amount));
   }
 }

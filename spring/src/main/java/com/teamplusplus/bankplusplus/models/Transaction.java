@@ -5,13 +5,10 @@ import java.time.LocalDateTime;
 public class Transaction {
   private final LocalDateTime date;
   private final Double amount;
-  private final String stock;
 
-  public Transaction(String stock) {
+  public Transaction(double amount) {
     this.date = LocalDateTime.now();
-    // TODO lookup stock price
-    this.amount = 0.0;
-    this.stock = stock;
+    this.amount = amount;
   }
 
   public LocalDateTime getDate() {
@@ -20,9 +17,5 @@ public class Transaction {
 
   public Double getAmount() {
     return amount;
-  }
-
-  public String getStock() {
-    return stock;
   }
 }
