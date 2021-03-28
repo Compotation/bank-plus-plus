@@ -7,21 +7,21 @@ public class Crypto {
         this.keys = keys;
     }
 
-    public byte[] encrypt(byte[] data) {
+    public String encrypt(byte[] data) {
         byte[] enc = new byte[data.length];
 
         for (int i = 0; i < data.length; i++) {
             enc[i] = (byte) ((i % keys[0] == 0) ? data[i] + keys[1] : data[i] - keys[2]);
         }
-        return enc;
+        return new String(enc);
     }
 
-    public byte[] decrypt(byte[] data) {
+    public String decrypt(byte[] data) {
         byte[] enc = new byte[data.length];
 
         for (int i = 0; i < data.length; i++) {
             enc[i] = (byte) ((i % keys[0] == 0) ? data[i] - keys[1] : data[i] + keys[2]);
         }
-        return enc;
+        return new String(enc);
     }
 }
