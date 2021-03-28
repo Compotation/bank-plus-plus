@@ -17,7 +17,7 @@ public class BankPlusPlusApplication {
     return new WebMvcConfigurer() {
       @Override
       public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**").allowedOrigins("http://localhost:8000");
+        registry.addMapping("/**").allowedOrigins("http://localhost:8000", "https://orange-coast-0e9e3190f.azurestaticapps.net");
       }
     };
   }
