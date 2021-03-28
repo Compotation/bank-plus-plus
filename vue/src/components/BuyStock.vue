@@ -1,5 +1,6 @@
 <template>
   <div class="buy-container">
+    <button @click="getStocks">Refresh</button>
     <label for="stock-select">Select a stock to buy:</label>
     <select id="stock-select" name="stocks">
       <option value="">Please select a stock</option>
@@ -27,9 +28,17 @@ export default {
   name: "BuyStock",
   data() {
     return {
-      stocks: ["GOOGL", "GME", "APPL"],
+      stocks: [],
       accounts: { rand1: 41.2, rand2: 0.0 },
     };
+  },
+
+  methods: {
+    getStocks() {
+      fetch(process.env.VUE_APP_API + "/stocks")
+        .then((response) => response.json())
+        .then((data) => (this.stocks = data));
+    },
   },
 };
 </script>
