@@ -35,14 +35,18 @@ public class Stock {
 
         if (  name.startsWith("A")
             ||name.startsWith("E")
-            ||name.startsWith("I")
-            ||name.startsWith("O")
-            ||name.startsWith("U")
-            )
-            newName += name.substring(0,1);
+            || name.startsWith("I")
+            || name.startsWith("O")
+            || name.startsWith("U")
+        )
+            newName += name.substring(0, 1);
 
         newName += name.replaceAll("[AEIOU]", "");
 
         return newName;
+    }
+
+    public String[] toArray() {
+        return new String[]{name, ticker, String.valueOf(value)};
     }
 }
