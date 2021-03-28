@@ -18,4 +18,8 @@ public class Transaction {
   public Double getAmount() {
     return amount;
   }
+
+  public String toString() {
+    return date.toLocalDate().toString() + ", " + amount.toString();
+  }
 }
