@@ -21,4 +21,10 @@ public class DataEncrypt {
       }
     };
   }
+
+  public Map<String, String> decryptAccount(Map<String, String> encryptedAccount) {
+    Map<String, String> accountMap = new HashMap<>();
+    encryptedAccount.forEach((key, value) -> accountMap.put(key, crypto.decrypt(value)));
+    return accountMap;
+  }
 }
