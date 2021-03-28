@@ -1,21 +1,26 @@
 package com.teamplusplus.bankplusplus.crypto;
 
-public class Crypto implements CryptoInterface {
+public class Crypto {
+    private final int[] keys;
 
-    public byte[] encrypt(byte[] data, int keyOne, int keyTwo, int keyThree) {
+    public Crypto(int[] keys) {
+        this.keys = keys;
+    }
+
+    public byte[] encrypt(byte[] data) {
         byte[] enc = new byte[data.length];
 
-        for (int i = 0; i < data.length; i++){
-            enc[i] = (byte)((i % keyOne == 0) ? data[i] + keyTwo : data[i] - keyThree);
+        for (int i = 0; i < data.length; i++) {
+            enc[i] = (byte) ((i % keys[0] == 0) ? data[i] + keys[1] : data[i] - keys[2]);
         }
         return enc;
     }
 
-    public byte[] decrypt(byte[] data, int keyOne, int keyTwo, int keyThree) {
+    public byte[] decrypt(byte[] data) {
         byte[] enc = new byte[data.length];
 
-        for (int i = 0; i < data.length; i++){
-            enc[i] = (byte)((i % keyOne == 0) ? data[i] - keyTwo : data[i] + keyThree);
+        for (int i = 0; i < data.length; i++) {
+            enc[i] = (byte) ((i % keys[0] == 0) ? data[i] - keys[1] : data[i] + keys[2]);
         }
         return enc;
     }
