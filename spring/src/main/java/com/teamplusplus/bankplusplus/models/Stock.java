@@ -1,9 +1,9 @@
 package com.teamplusplus.bankplusplus.models;
 
 public class Stock {
-    private String name;
-    private String ticker;
-    private double value;
+    private final String name;
+    private final String ticker;
+    private final double value;
 
     public Stock(String name, String ticker, double value) {
         this.name = name;
@@ -17,15 +17,15 @@ public class Stock {
         this.value = value;
     }
 
-    public getName() {
+    public String getName() {
         return name;
     }
 
-    public getTicker() {
+    public String getTicker() {
         return ticker;
     }
 
-    public getValue() {
+    public double getValue() {
         return value;
     }
 
