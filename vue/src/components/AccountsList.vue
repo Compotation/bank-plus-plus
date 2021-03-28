@@ -1,4 +1,5 @@
 <template>
+  <button @click="getAccounts">Refresh</button>
   <table>
     <thead>
       <tr>
@@ -24,8 +25,15 @@ export default {
   name: "AccountsList",
   data() {
     return {
-      accounts: [{ name: "First Account", balance: 200, transactionsList: [] }],
+      accounts: [],
     };
+  },
+  methods: {
+    getAccounts() {
+      fetch(process.env.VUE_APP_API + "/accounts")
+        .then((response) => response.json())
+        .then((data) => (this.accounts = data));
+    },
   },
 };
 </script>
