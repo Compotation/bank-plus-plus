@@ -10,6 +10,9 @@
       <li>
         <router-link to="/buy">Buy</router-link>
       </li>
+      <li>
+        <router-link to="/stocks">Stock Info</router-link>
+      </li>
     </ul>
   </nav>
 </template>
