@@ -1,6 +1,6 @@
 <template>
   <div class="buy-container">
-    <button @click="getStocks">Refresh</button>
+    <button @click="refresh">Refresh</button>
     <label for="stock-select">Select a stock to buy:</label>
     <select id="stock-select" name="stocks">
       <option value="">Please select a stock</option>
@@ -15,7 +15,7 @@
       <option value="">Please select an account</option>
 
       <option v-for="account in accounts" :key="account" :value="account">
-        {{ account }}
+        {{ account.name }} (${{ account.balance }})
       </option>
     </select>
 
@@ -29,7 +29,7 @@ export default {
   data() {
     return {
       stocks: [],
-      accounts: { rand1: 41.2, rand2: 0.0 },
+      accounts: [],
     };
   },
 
@@ -38,6 +38,15 @@ export default {
       fetch(process.env.VUE_APP_API + "/stocks")
         .then((response) => response.json())
         .then((data) => (this.stocks = data));
+    },
+    getAccounts() {
+      fetch(process.env.VUE_APP_API + "/accounts")
+        .then((response) => response.json())
+        .then((data) => (this.accounts = data));
+    },
+    refresh() {
+      this.getStocks();
+      this.getAccounts();
     },
   },
 };
