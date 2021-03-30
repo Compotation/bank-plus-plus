@@ -24,6 +24,6 @@ public class AccountController {
 
   @PostMapping("/accounts")
   public void addAccount(@RequestParam String name) {
-    accountRepository.getAccounts().add(new Account(name));
+    accountRepository.addAccount(name);
   }
 }
