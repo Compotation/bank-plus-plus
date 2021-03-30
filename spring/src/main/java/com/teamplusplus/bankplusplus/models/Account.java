@@ -30,8 +30,8 @@ public class Account {
     return transactionList.size();
   }
 
-  public void buyStock(String stockName) {
-    transactionList.add(0, new StockTransaction(stockName));
+  public void buyStock(String stockName, double stockPrice) {
+    transactionList.add(0, new StockTransaction(stockName, stockPrice));
   }
 
   public void depositMoney(double amount) {
