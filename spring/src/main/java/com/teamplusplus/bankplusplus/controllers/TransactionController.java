@@ -1,6 +1,7 @@
 package com.teamplusplus.bankplusplus.controllers;
 
 import com.teamplusplus.bankplusplus.models.AccountRepository;
+import com.teamplusplus.bankplusplus.models.ArrayMethods;
 import com.teamplusplus.bankplusplus.models.Stock;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,7 +22,7 @@ public class TransactionController {
 
   @PostMapping("/{accountId}/transactions")
   public void addTransaction(@PathVariable int accountId, @RequestParam String stock) {
-    accountRepository.getAccount(accountId).buyStock(stock);
+    accountRepository.getAccount(accountId).buyStock(stock, ArrayMethods.findStockPrice(stocks, stock));
   }
 
   @GetMapping("/stocks")
