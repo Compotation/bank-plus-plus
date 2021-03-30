@@ -31,17 +31,30 @@ public class Stock {
 
     public String makeTicker(String name) {
         String newName = "";
+
+        if (newName == name) {
+            return "INVALID";
+        }
+
         name = name.toUpperCase();
 
-        if (  name.startsWith("A")
-            ||name.startsWith("E")
-            || name.startsWith("I")
-            || name.startsWith("O")
-            || name.startsWith("U")
-        )
+        // if (name.startsWith("A")
+        //  || name.startsWith("E")
+        //  || name.startsWith("I")
+        //  || name.startsWith("O")
+        //  || name.startsWith("U")
+        // )
+
+        // ^ - start of String
+        // [AEIOU] - find character from options in brackets
+        // .* - followed by any characters
+        // $ - end of String
+        if (name.matches("^[AEIOU].*$"))
             newName += name.substring(0, 1);
 
         newName += name.replaceAll("[AEIOU]", "");
+
+        newName = (newName.length() >= 5) ? newName.substring(0, 5) : newName;
 
         return newName;
     }
