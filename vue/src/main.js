@@ -6,6 +6,7 @@ import Button from "primevue/button";
 import DataView from "primevue/dataview";
 import Panel from "primevue/panel";
 import InputText from "primevue/inputtext";
+import Dropdown from "primevue/dropdown";
 import "primevue/resources/themes/mdc-light-indigo/theme.css";
 import "primevue/resources/primevue.min.css";
 import "primeicons/primeicons.css";
@@ -17,5 +18,6 @@ app
   .component("Button", Button)
   .component("DataView", DataView)
   .component("Panel", Panel)
-  .component("InputText", InputText);
+  .component("InputText", InputText)
+  .component("Dropdown", Dropdown);
 app.mount("#app");

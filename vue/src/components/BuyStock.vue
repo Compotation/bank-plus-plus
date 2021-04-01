@@ -2,24 +2,41 @@
   <div class="buy-container">
     <Button @click="refresh">Refresh</Button>
     <label for="stock-select">Select a stock to buy:</label>
-    <select id="stock-select" name="stocks">
-      <option value="">Please select a stock</option>
 
-      <option v-for="stock in stocks" :key="stock" :value="stock">
-        {{ stock }}
-      </option>
-    </select>
+    <Dropdown
+      v-model="selectedStock"
+      :options="stocks"
+      optionLabel="1"
+      placeholder="Select a stock"
+      id="stock-select"
+    >
+      <template #option="slotProps">
+        <div>
+          <abbr>{{ slotProps.option[1] }} at ${{ slotProps.option[2] }}</abbr>
+        </div>
+      </template>
+    </Dropdown>
 
-    <label for="account-select">Account:</label>
-    <select id="account-select" name="accounts">
-      <option value="">Please select an account</option>
+    <label for="account-select">Select an account to buy with:</label>
 
-      <option v-for="account in accounts" :key="account" :value="account">
-        {{ account.name }} (${{ account.balance }})
-      </option>
-    </select>
+    <Dropdown
+      v-model="selectedAccount"
+      :options="accounts"
+      optionLabel="name"
+      placeholder="Select an account"
+    >
+      <template #option="slotProps">
+        <div>
+          <span>
+            {{ slotProps.option.name }} with ${{
+              slotProps.option.balance
+            }}</span
+          >
+        </div>
+      </template>
+    </Dropdown>
 
-    <button>Buy</button>
+    <Button label="Buy" />
   </div>
 </template>
 
@@ -30,6 +47,8 @@ export default {
     return {
       stocks: [],
       accounts: [],
+      selectedStock: null,
+      selectedAccount: null,
     };
   },
 
