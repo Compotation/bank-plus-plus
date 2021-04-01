@@ -1,8 +1,12 @@
 <template>
-  <label for="name">Name of Account</label>
-  <input id="name" v-model="accountName" required type="text" />
+  <div class="p-formgroup-inline">
+    <div class="p-field">
+      <label for="name">Name of Account</label>
+      <InputText id="name" type="text" v-model="accountName" />
+    </div>
 
-  <button @click="createAccount">Create</button>
+    <Button @click="createAccount">Create</Button>
+  </div>
 </template>
 
 <script>
