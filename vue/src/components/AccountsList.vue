@@ -1,5 +1,5 @@
 <template #list="slotProps">
-  <Button @click="getAccounts">Refresh</Button>
+  <Button @click="getAccounts" class="pi pi-refresh" />
   <DataView :value="accounts" :layout="layout">
     <template #header>
       <DataViewLayoutOptions v-model="layout"></DataViewLayoutOptions>

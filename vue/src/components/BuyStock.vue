@@ -1,8 +1,8 @@
 <template>
   <div class="buy-container">
-    <Button @click="refresh">Refresh</Button>
-    <label for="stock-select">Select a stock to buy:</label>
+    <Button @click="refresh" class="pi pi-refresh" />
 
+    <label for="stock-select">Select a stock to buy:</label>
     <Dropdown
       v-model="selectedStock"
       :options="stocks"
@@ -18,7 +18,6 @@
     </Dropdown>
 
     <label for="account-select">Select an account to buy with:</label>
-
     <Dropdown
       v-model="selectedAccount"
       :options="accounts"
