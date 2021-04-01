@@ -29,6 +29,18 @@ public class Stock {
         return value;
     }
 
+    public void setName(String newName) {
+        this.name = newName;
+    }
+
+    public void setTicker(String newTicker) {
+        this.ticker = newTicker;
+    }
+
+    public void setValue(double newValue) {
+        this.value = newValue;
+    }
+
     public String makeTicker(String name) {
         String newName = "";
 
@@ -45,10 +57,11 @@ public class Stock {
         //  || name.startsWith("U")
         // )
 
-        // ^ - start of String
-        // [AEIOU] - find character from options in brackets
-        // .* - followed by any characters
-        // $ - end of String
+        /* ^ - start of String
+         * [AEIOU] - find character from options in brackets
+         * .* - followed by any characters
+         * $ - end of String
+         */
         if (name.matches("^[AEIOU].*$"))
             newName += name.substring(0, 1);
 
