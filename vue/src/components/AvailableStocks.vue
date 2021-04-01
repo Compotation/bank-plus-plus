@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Button @click="getStocks">Refresh</Button>
+    <Button @click="getStocks" class="pi pi-refresh" />
 
     <table>
       <thead>
