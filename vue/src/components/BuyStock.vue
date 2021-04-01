@@ -1,6 +1,6 @@
 <template>
   <div class="buy-container">
-    <button @click="refresh">Refresh</button>
+    <Button @click="refresh">Refresh</Button>
     <label for="stock-select">Select a stock to buy:</label>
     <select id="stock-select" name="stocks">
       <option value="">Please select a stock</option>

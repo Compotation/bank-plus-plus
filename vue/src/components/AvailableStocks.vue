@@ -1,5 +1,5 @@
 <template>
-  <button @click="getStocks">Refresh</button>
+  <Button @click="getStocks">Refresh</Button>
 
   <table>
     <thead>
