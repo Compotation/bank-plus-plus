@@ -38,5 +38,8 @@ export default {
         .then((data) => (this.accounts = data));
     },
   },
+  mounted() {
+    this.getAccounts();
+  },
 };
 </script>
