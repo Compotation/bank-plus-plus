@@ -1,13 +1,46 @@
 <template>
-  <AvailableStocks></AvailableStocks>
+  <div>
+    <Button @click="getStocks" class="pi pi-refresh" />
+
+    <table>
+      <thead>
+        <tr>
+          <th>Company</th>
+          <th>Ticker</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="stock in stocks" :key="stock">
+          <td>{{ stock[0] }}</td>
+          <td>{{ stock[1] }}</td>
+          <td>{{ stock[2] }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </template>
 
 <script>
-import AvailableStocks from "@/components/AvailableStocks";
-
 export default {
-  name: "StockInfo",
-  components: { AvailableStocks },
+  name: "AvailableStocks",
+  data() {
+    return {
+      data() {
+        return {
+          stocks: [[2, 3, 3]],
+        };
+      },
+    };
+  },
+  methods: {
+    getStocks() {
+      // TODO stocks not shown
+      fetch(process.env.VUE_APP_API + "/stocks")
+        .then((response) => response.json())
+        .then((data) => (this.stocks = data));
+    },
+  },
 };
 </script>
 
