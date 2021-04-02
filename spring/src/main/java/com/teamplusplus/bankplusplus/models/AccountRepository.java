@@ -21,7 +21,12 @@ public class AccountRepository {
     accounts.add(new Account(name));
   }
 
-  public Account getAccount(int id) {
-    return accounts.get(id);
+  public Account getAccount(String id) {
+    for (Account account : accounts) {
+      if (account.getId().toString().equals(id)) {
+        return account;
+      }
+    }
+    return null;
   }
 }

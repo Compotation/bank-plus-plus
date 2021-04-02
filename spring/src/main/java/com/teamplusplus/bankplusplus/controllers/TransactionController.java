@@ -15,13 +15,8 @@ public class TransactionController {
     stocks = new String[][]{new Stock("Tesla", 200.50).toArray(), new Stock("Apple", 985).toArray()};
   }
 
-  @GetMapping("/{accountId}/transactions/amount")
-  public int showAmountOfTransactions(@PathVariable int accountId) {
-    return accountRepository.getAccount(accountId).numberOfTransactions();
-  }
-
   @PostMapping("/{accountId}/transactions")
-  public void addTransaction(@PathVariable int accountId, @RequestParam String stock) {
+  public void addTransaction(@PathVariable String accountId, @RequestParam String stock) {
     accountRepository.getAccount(accountId).buyStock(stock, ArrayMethods.findStockPrice(stocks, stock));
   }
 
