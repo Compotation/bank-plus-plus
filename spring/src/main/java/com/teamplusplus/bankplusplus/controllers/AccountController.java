@@ -4,10 +4,7 @@ import com.teamplusplus.bankplusplus.crypto.Crypto;
 import com.teamplusplus.bankplusplus.crypto.DataEncrypt;
 import com.teamplusplus.bankplusplus.models.Account;
 import com.teamplusplus.bankplusplus.models.AccountRepository;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +23,11 @@ public class AccountController {
   @GetMapping("/accounts")
   public List<Account> listAccounts() {
     return accountRepository.getAccounts();
+  }
+
+  @GetMapping("/{accountId}")
+  public Account searchForAccount(@PathVariable String accountId) {
+    return accountRepository.getAccount(accountId);
   }
 
   @PostMapping("/accounts")
