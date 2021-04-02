@@ -51,6 +51,9 @@ export default {
         .then((data) => (this.stocks = data));
     },
   },
+  mounted() {
+    this.getStocks();
+  },
 };
 </script>
 
