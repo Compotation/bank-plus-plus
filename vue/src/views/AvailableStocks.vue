@@ -1,36 +1,46 @@
 <template>
   <div>
-    <Button @click="getStocks" class="pi pi-refresh" />
+    <Button @click="getStocks" icon="pi pi-refresh" />
 
-    <table>
-      <thead>
-        <tr>
-          <th>Company</th>
-          <th>Ticker</th>
-          <th>Price</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="stock in stocks" :key="stock">
-          <td>{{ stock[0] }}</td>
-          <td>{{ stock[1] }}</td>
-          <td>{{ stock[2] }}</td>
-        </tr>
-      </tbody>
-    </table>
+    <DataView :value="stocks" :layout="layout">
+      <template #header>
+        <DataViewLayoutOptions v-model="layout"></DataViewLayoutOptions>
+      </template>
+
+      <template #list="slotProps">
+        <Card class="stock-card">
+          <template #title> {{ slotProps.data[1] }} </template>
+          <template #subtitle>{{ slotProps.data[0] }}</template>
+          <template #content>{{ slotProps.data[2] }}</template>
+        </Card>
+      </template>
+
+      <template #grid="slotProps">
+        <Card class="stock-card">
+          <template #title> {{ slotProps.data[1] }} </template>
+          <template #subtitle>{{ slotProps.data[0] }}</template>
+          <template #content>{{ slotProps.data[2] }}</template>
+        </Card>
+      </template>
+    </DataView>
   </div>
 </template>
 
 <script>
+import DataView from "primevue/dataview";
+import DataViewLayoutOptions from "primevue/dataviewlayoutoptions";
+import Card from "primevue/card";
+
 export default {
   name: "AvailableStocks",
+  components: {
+    DataView,
+    DataViewLayoutOptions,
+    Card,
+  },
   data() {
     return {
-      data() {
-        return {
-          stocks: [[2, 3, 3]],
-        };
-      },
+      stocks: null,
     };
   },
   methods: {
@@ -44,4 +54,11 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.stock-card {
+  margin-right: 1rem;
+  margin-left: 1rem;
+  padding-right: 2rem;
+  padding-left: 2rem;
+}
+</style>
