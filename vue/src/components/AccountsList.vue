@@ -1,22 +1,17 @@
 <template #list="slotProps">
   <Button @click="getAccounts" class="pi pi-refresh" />
-  <DataView :value="accounts" :layout="layout">
-    <template #header>
-      <DataViewLayoutOptions v-model="layout"></DataViewLayoutOptions>
-    </template>
-    <template #list="slotProps">
-      <Panel
-        :header="slotProps.data.name"
-        style="text-align: center; margin: 20px"
-      >
-        <div>${{ slotProps.data.balance }}</div>
 
-        <router-link :to="'/accounts/' + slotProps.data.name"
-          ><Button icon="pi pi-link" />
-        </router-link>
-      </Panel>
+  <Toolbar class="p-mb-4">
+    <template #left>
+      <Button label="New" icon="pi pi-plus" class="p-button-success p-mr-2" />
     </template>
-  </DataView>
+  </Toolbar>
+
+  <!-- TODO sort by id -->
+  <DataTable ref="dt" :value="accounts" dataKey="name">
+    <Column field="name" header="Name" :sortable="true"></Column>
+    <Column field="balance" header="Balance" :sortable="true"></Column>
+  </DataTable>
 </template>
 
 <script>
