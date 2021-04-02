@@ -18,6 +18,7 @@ public class DataEncrypt {
         put("transactionList", crypto.encrypt(account.getTransactionList().toString()));
         put("name", crypto.encrypt(account.getName()));
         put("balance", crypto.encrypt(account.getBalance()));
+        put("id", crypto.encrypt(account.getId().toString()));
       }
     };
   }
