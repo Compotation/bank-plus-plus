@@ -10,14 +10,10 @@
         style="text-align: center; margin: 20px"
       >
         <div>${{ slotProps.data.balance }}</div>
-        <Button icon="pi pi-link"></Button>
-      </Panel>
-    </template>
 
-    <template #grid="slotProps">
-      <Panel :header="slotProps.data.name" style="text-align: center">
-        <div>${{ slotProps.data.balance }}</div>
-        <Button icon="pi pi-link"></Button>
+        <router-link :to="'/accounts/' + slotProps.data.name"
+          ><Button icon="pi pi-link" />
+        </router-link>
       </Panel>
     </template>
   </DataView>
