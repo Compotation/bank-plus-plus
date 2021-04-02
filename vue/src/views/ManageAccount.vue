@@ -7,7 +7,7 @@
 import Transactions from "@/components/Transactions";
 
 export default {
-  name: "AccountView",
+  name: "ManageAccount",
   components: { Transactions },
 };
 </script>

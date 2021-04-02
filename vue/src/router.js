@@ -1,16 +1,16 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "@/views/Home";
-import ViewAllAccounts from "@/views/ViewAllAccounts";
+import AccountsList from "@/views/AccountsList";
 import ManageAccount from "@/views/ManageAccount";
 import BuyStock from "@/views/BuyStock";
-import StockInfo from "@/views/StockInfo";
+import AvailableStocks from "@/views/AvailableStocks";
 
 const routes = [
   { path: "/", component: Home },
-  { path: "/accounts", component: ViewAllAccounts },
+  { path: "/accounts", component: AccountsList },
   { path: "/accounts/:id", component: ManageAccount },
   { path: "/buy", component: BuyStock },
-  { path: "/stocks", component: StockInfo },
+  { path: "/stocks", component: AvailableStocks },
 ];
 
 const router = createRouter({
