@@ -15,7 +15,13 @@
 
     <!-- TODO sort by id -->
     <DataTable ref="dt" :value="accounts" dataKey="name">
-      <Column field="name" header="Name" :sortable="true"></Column>
+      <Column field="name" header="Name" :sortable="true">
+        <template #body="slotProps">
+          <router-link :to="'/accounts/' + slotProps.data.name">{{
+            slotProps.data.name
+          }}</router-link>
+        </template>
+      </Column>
       <Column field="balance" header="Balance" :sortable="true"></Column>
     </DataTable>
 
