@@ -67,7 +67,7 @@ export default {
   },
   methods: {
     getAccounts() {
-      fetch(process.env.VUE_APP_API + "/accounts")
+      fetch(process.env.VUE_APP_API + "/accounts", { credentials: "include" })
         .then((response) => response.json())
         .then((data) => (this.accounts = data));
     },

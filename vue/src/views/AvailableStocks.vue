@@ -46,7 +46,7 @@ export default {
   methods: {
     getStocks() {
       // TODO stocks not shown
-      fetch(process.env.VUE_APP_API + "/stocks")
+      fetch(process.env.VUE_APP_API + "/stocks", { credentials: "include" })
         .then((response) => response.json())
         .then((data) => (this.stocks = data));
     },

@@ -53,12 +53,12 @@ export default {
 
   methods: {
     getStocks() {
-      fetch(process.env.VUE_APP_API + "/stocks")
+      fetch(process.env.VUE_APP_API + "/stocks", { credentials: "include" })
         .then((response) => response.json())
         .then((data) => (this.stocks = data));
     },
     getAccounts() {
-      fetch(process.env.VUE_APP_API + "/accounts")
+      fetch(process.env.VUE_APP_API + "/accounts", { credentials: "include" })
         .then((response) => response.json())
         .then((data) => (this.accounts = data));
     },
