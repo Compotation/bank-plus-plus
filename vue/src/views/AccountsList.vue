@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Button @click="getAccounts" class="pi pi-refresh" />
+    <Button @click="getAccounts" icon="pi pi-refresh" />
 
     <Toolbar class="p-mb-4">
       <template #left>
@@ -35,7 +35,7 @@
       <template #footer>
         <Button
           label="Cancel"
-          icon="pi pi-time"
+          icon="pi pi-times"
           class="p-button-text"
           @click="this.makingNewAccount = false"
         />

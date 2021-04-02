@@ -1,6 +1,6 @@
 <template>
   <div class="buy-container">
-    <Button @click="refresh" class="pi pi-refresh" />
+    <Button @click="refresh" icon="pi pi-refresh" />
 
     <label for="stock-select">Select a stock to buy:</label>
     <Dropdown
@@ -35,7 +35,7 @@
       </template>
     </Dropdown>
 
-    <Button label="Buy" />
+    <Button label="Buy" icon="pi pi-shopping-cart" iconPos="right" />
   </div>
 </template>
 
