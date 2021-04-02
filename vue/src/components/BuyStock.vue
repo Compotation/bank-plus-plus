@@ -67,6 +67,9 @@ export default {
       this.getAccounts();
     },
   },
+  mounted() {
+    this.refresh();
+  },
 };
 </script>
 
