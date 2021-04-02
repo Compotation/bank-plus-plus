@@ -13,11 +13,10 @@
       </template>
     </Toolbar>
 
-    <!-- TODO sort by id -->
     <DataTable ref="dt" :value="accounts" dataKey="name">
       <Column field="name" header="Name" :sortable="true">
         <template #body="slotProps">
-          <router-link :to="'/accounts/' + slotProps.data.name">{{
+          <router-link :to="'/accounts/' + slotProps.data.id">{{
             slotProps.data.name
           }}</router-link>
         </template>
