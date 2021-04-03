@@ -23,7 +23,7 @@
 
 <script>
 import Avatar from "primevue/avatar";
-import AccountService from "@/services/account-service.js";
+import APIService from "@/services/api-service.js";
 
 export default {
   name: "Header",
@@ -34,7 +34,7 @@ export default {
     };
   },
   mounted() {
-    AccountService.get("/time").then(
+    APIService.get("/time").then(
       () => (this.avatarIcon = "pi pi-check-square")
     );
   },
