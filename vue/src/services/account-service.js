@@ -1,19 +1,26 @@
 export default {
-  getAccounts() {
-    return fetch(process.env.VUE_APP_API + "/accounts", {
+  get(endpoint) {
+    return fetch(process.env.VUE_APP_API + endpoint, {
       credentials: "include",
     }).then((response) => response.json());
   },
 
-  postNewAccount(name) {
-    fetch(process.env.VUE_APP_API + "/accounts" + "?name=" + name, {
+  post(endpoint) {
+    return fetch(process.env.VUE_APP_API + endpoint, {
+      credentials: "include",
       method: "POST",
     });
   },
 
+  getAccounts() {
+    return this.get("/accounts");
+  },
+
+  postNewAccount(name) {
+    this.post("/accounts?name=" + encodeURIComponent(name));
+  },
+
   getAccount(id) {
-    return fetch(process.env.VUE_APP_API + "/" + id, {
-      credentials: "include",
-    }).then((response) => response.json());
+    return this.get("/" + id);
   },
 };

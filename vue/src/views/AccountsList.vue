@@ -61,7 +61,7 @@ export default {
   name: "AccountsList",
   data() {
     return {
-      accounts: [],
+      accounts: null,
       makingNewAccount: false,
     };
   },
