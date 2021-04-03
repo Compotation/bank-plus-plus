@@ -12,7 +12,28 @@ public class TransactionController {
 
   public TransactionController(AccountRepository accountRepository) {
     this.accountRepository = accountRepository;
-    stocks = new String[][]{new Stock("Tesla", 200.50).toArray(), new Stock("Apple", 985).toArray()};
+    stocks = new String[][]{
+                            // without Ticker symbol
+                            new Stock("Tesla", 200.50).toArray(),
+                            new Stock("Apple", 985).toArray(),
+                            new Stock("Microsoft", 240.35).toArray(),
+                            new Stock("Facebook", 300).toArray(),
+                            new Stock("Ubisoft", 15).toArray(),
+                            new Stock("Blizzard", 95.5).toArray(),
+                            new Stock("Google", 2005).toArray(),
+                            new Stock("EA", 140).toArray(),
+                            new Stock("IBM", 133).toArray(),
+                            new Stock("Pied Piper", 0.07).toArray(),
+                            new Stock("Aviato", 12.5).toArray(),
+                            // with Ticker symbol
+                            new Stock("AT&T", "T", 30.47).toArray(),
+                            new Stock("Home Depot Inc", "HD", 307.75).toArray(),
+                            new Stock("Johnson & Johnson", "JNJ", 160).toArray(),
+                            new Stock("Ford Motor Company", "F", 12).toArray(),
+                            new Stock("Costco Wholesale", "COST", 355).toArray(),
+                            new Stock("Citigroup", "C", 73).toArray(),
+                            new Stock("Dell Technologies", "DELL", 90).toArray(),
+                            };
   }
 
   @GetMapping("/{accountId}/transactions/amount")
