@@ -23,4 +23,13 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+ul {
+  list-style-type: none;
+  display: flex;
+}
+li {
+  display: flex;
+  flex-direction: row;
+}
+</style>
