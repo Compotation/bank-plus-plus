@@ -35,19 +35,26 @@
       </template>
     </Dropdown>
 
+    <label for="amount">Amount of Stocks to Buy</label>
+    <InputNumber v-model="amountToBuy" showButtons :min="1" />
+
     <Button label="Buy" icon="pi pi-shopping-cart" iconPos="right" />
   </div>
 </template>
 
 <script>
+import InputNumber from "primevue/inputnumber";
+
 export default {
   name: "BuyStock",
+  components: { InputNumber },
   data() {
     return {
       stocks: [],
       accounts: [],
       selectedStock: null,
       selectedAccount: null,
+      amountToBuy: null,
     };
   },
 
