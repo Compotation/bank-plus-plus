@@ -3,7 +3,7 @@
     <template #title> Account {{ $route.params.id }} </template>
     <template #content><Button label="Deposit" /></template>
   </Card>
-  <Transactions />
+  <Transactions :accountId="$route.params.id" />
 </template>
 
 <script>

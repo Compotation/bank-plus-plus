@@ -18,18 +18,24 @@
 </template>
 
 <script>
+import AccountService from "@/services/account-service.js";
 export default {
   name: "Transactions",
+  props: ["accountId"],
   data() {
     return {
-      transactions: [
-        {
-          date: "2021-02-12T16:02:24.026590672",
-          amount: 21.5,
-          merchant: "Apple",
-        },
-      ],
+      transactions: null,
     };
+  },
+  mounted() {
+    this.fetchTransactions();
+  },
+  methods: {
+    fetchTransactions() {
+      AccountService.getAccount(this.accountId).then(
+        (data) => (this.transactions = data.transactions)
+      );
+    },
   },
 };
 </script>
