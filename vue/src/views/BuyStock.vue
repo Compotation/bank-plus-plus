@@ -73,10 +73,4 @@ export default {
 };
 </script>
 
-<style scoped>
-.buy-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-</style>
+<style scoped></style>
