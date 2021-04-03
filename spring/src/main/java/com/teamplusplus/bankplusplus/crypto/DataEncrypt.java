@@ -15,7 +15,7 @@ public class DataEncrypt {
   public Map<String, String> encryptAccount(Account account) {
     return new HashMap<>() {
       {
-        put("transactionList", crypto.encrypt(account.getTransactionList().toString()));
+        put("transactions", crypto.encrypt(account.getTransactions().toString()));
         put("name", crypto.encrypt(account.getName()));
         put("balance", crypto.encrypt(account.getBalance()));
         put("id", crypto.encrypt(account.getId().toString()));
