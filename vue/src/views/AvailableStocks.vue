@@ -31,10 +31,6 @@ import DataView from "primevue/dataview";
 import DataViewLayoutOptions from "primevue/dataviewlayoutoptions";
 import Card from "primevue/card";
 
-function moneyFormat(value) {
-  return ("$" + value);
-}
-
 export default {
   name: "AvailableStocks",
   components: {
@@ -53,6 +49,9 @@ export default {
       fetch(process.env.VUE_APP_API + "/stocks", { credentials: "include" })
         .then((response) => response.json())
         .then((data) => (this.stocks = data));
+    },
+    moneyFormat(value) {
+      return "$" + value;
     },
   },
   mounted() {
