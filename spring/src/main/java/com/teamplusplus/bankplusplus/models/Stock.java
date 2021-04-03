@@ -50,6 +50,19 @@ public class Stock {
 
         name = name.toUpperCase();
 
+        /* removes all whitespaces and
+         * non-visible characters
+         * (e.g., tab, \n)
+         * (n^2)
+         */
+        name = name.replaceAll("\\s", "");
+        // alternatively(n*log(n)):
+        // name = name.replaceAll("\\s+", "");
+
+        if (name.length() <= 5) {
+            return name;
+        }
+
         // if (name.startsWith("A")
         //  || name.startsWith("E")
         //  || name.startsWith("I")
