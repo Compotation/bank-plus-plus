@@ -38,12 +38,18 @@
     <label for="amount">Amount of Stocks to Buy</label>
     <InputNumber v-model="amountToBuy" showButtons :min="1" />
 
-    <Button label="Buy" icon="pi pi-shopping-cart" iconPos="right" />
+    <Button
+      label="Buy"
+      icon="pi pi-shopping-cart"
+      iconPos="right"
+      @click="buyAndRefresh"
+    />
   </div>
 </template>
 
 <script>
 import InputNumber from "primevue/inputnumber";
+import TransactionService from "@/services/transaction-service.js";
 
 export default {
   name: "BuyStock",
@@ -72,6 +78,13 @@ export default {
     refresh() {
       this.getStocks();
       this.getAccounts();
+    },
+    buyAndRefresh() {
+      TransactionService.buyStock(
+        this.selectedAccount.id,
+        this.selectedStock[1],
+        this.amountToBuy
+      ).then(() => this.refresh());
     },
   },
   mounted() {
