@@ -11,7 +11,7 @@
         <Card class="stock-card">
           <template #title> {{ slotProps.data[1] }} </template>
           <template #subtitle>{{ slotProps.data[0] }}</template>
-          <template #content>{{ slotProps.data[2] }}</template>
+          <template #content>{{ moneyFormat(slotProps.data[2]) }}</template>
         </Card>
       </template>
 
@@ -19,7 +19,7 @@
         <Card class="stock-card">
           <template #title> {{ slotProps.data[1] }} </template>
           <template #subtitle>{{ slotProps.data[0] }}</template>
-          <template #content>{{ slotProps.data[2] }}</template>
+          <template #content>{{ moneyFormat(slotProps.data[2]) }}</template>
         </Card>
       </template>
     </DataView>
@@ -30,6 +30,10 @@
 import DataView from "primevue/dataview";
 import DataViewLayoutOptions from "primevue/dataviewlayoutoptions";
 import Card from "primevue/card";
+
+function moneyFormat(value) {
+  return ("$" + value);
+}
 
 export default {
   name: "AvailableStocks",
