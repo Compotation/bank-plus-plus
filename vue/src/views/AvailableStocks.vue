@@ -59,8 +59,7 @@ export default {
 
 <style scoped>
 .stock-card {
-  margin-right: 1rem;
-  margin-left: 1rem;
+  margin: 1rem 1rem 1rem 1rem;
   padding-right: 2rem;
   padding-left: 2rem;
 }
