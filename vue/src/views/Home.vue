@@ -1,5 +1,5 @@
 <template>
-  <p>You have not logged in</p>
+  <p>This is the Bank++ website</p>
 </template>
 
 <script>

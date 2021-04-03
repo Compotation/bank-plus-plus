@@ -14,9 +14,11 @@
         <router-link to="/stocks">Stock Info</router-link>
       </li>
     </ul>
+    <div id="status">
+      <label>Login Status: </label>
+      <Avatar icon="pi pi-spin pi-spinner" size="large" />
+    </div>
   </nav>
-
-  <Avatar image="user.png" />
 </template>
 
 <script>
@@ -24,13 +26,20 @@ import Avatar from "primevue/avatar";
 
 export default {
   name: "Header",
-  components: {
-    Avatar,
-  },
+  components: { Avatar },
 };
 </script>
 
 <style scoped>
+nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+#status {
+  margin-left: auto;
+  margin-right: 15vw;
+}
 ul {
   list-style-type: none;
   display: flex;
