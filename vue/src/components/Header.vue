@@ -31,5 +31,6 @@ ul {
 li {
   display: flex;
   flex-direction: row;
+  margin: 1rem;
 }
 </style>
