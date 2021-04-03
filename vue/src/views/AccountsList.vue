@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Button @click="getAccounts" icon="pi pi-refresh" />
+    <Button @click="fetchAccounts" icon="pi pi-refresh" />
 
     <Toolbar class="p-mb-4">
       <template #left>
@@ -56,6 +56,7 @@
 </template>
 
 <script>
+import AccountService from "@/services/account-service.js";
 export default {
   name: "AccountsList",
   data() {
@@ -65,10 +66,8 @@ export default {
     };
   },
   methods: {
-    getAccounts() {
-      fetch(process.env.VUE_APP_API + "/accounts", { credentials: "include" })
-        .then((response) => response.json())
-        .then((data) => (this.accounts = data));
+    fetchAccounts() {
+      AccountService.getAccounts().then((data) => (this.accounts = data));
     },
     openNew() {
       this.makingNewAccount = true;
@@ -78,16 +77,11 @@ export default {
     },
     createAccount() {
       this.makingNewAccount = false;
-      fetch(
-        process.env.VUE_APP_API + "/accounts" + "?name=" + this.accountName,
-        {
-          method: "POST",
-        }
-      );
+      AccountService.postNewAccount(this.accountName);
     },
   },
   mounted() {
-    this.getAccounts();
+    this.fetchAccounts();
   },
 };
 </script>
