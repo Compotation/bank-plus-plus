@@ -16,17 +16,28 @@
     </ul>
     <div id="status">
       <label>Login Status: </label>
-      <Avatar icon="pi pi-spin pi-spinner" size="large" />
+      <Avatar :icon="avatarIcon" size="large" />
     </div>
   </nav>
 </template>
 
 <script>
 import Avatar from "primevue/avatar";
+import AccountService from "@/services/account-service.js";
 
 export default {
   name: "Header",
   components: { Avatar },
+  data() {
+    return {
+      avatarIcon: "pi pi-spin pi-spinner",
+    };
+  },
+  mounted() {
+    AccountService.get("/time").then(
+      () => (this.avatarIcon = "pi pi-check-square")
+    );
+  },
 };
 </script>
 
