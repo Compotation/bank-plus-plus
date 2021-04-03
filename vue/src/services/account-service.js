@@ -17,7 +17,7 @@ export default {
   },
 
   postNewAccount(name) {
-    this.post("/accounts?name=" + encodeURIComponent(name));
+    return this.post("/accounts?name=" + encodeURIComponent(name));
   },
 
   getAccount(id) {

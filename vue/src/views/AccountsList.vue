@@ -77,7 +77,9 @@ export default {
     },
     createAccount() {
       this.makingNewAccount = false;
-      AccountService.postNewAccount(this.accountName);
+      AccountService.postNewAccount(this.accountName).then(() =>
+        this.fetchAccounts()
+      );
     },
   },
   mounted() {
