@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 
 public class Transaction {
   private final LocalDateTime date;
-  private final Double amount;
+  private final double amount;
 
   public Transaction(double amount) {
     this.date = LocalDateTime.now();
@@ -15,11 +15,11 @@ public class Transaction {
     return date;
   }
 
-  public Double getAmount() {
+  public double getAmount() {
     return amount;
   }
 
   public String toString() {
-    return date.toLocalDate().toString() + ", " + amount.toString();
+    return date.toLocalDate().toString() + ", " + amount;
   }
 }

@@ -20,7 +20,7 @@ public class Crypto {
     return encrypt(data.getBytes());
   }
 
-  public String encrypt(Double data) {
+  public String encrypt(double data) {
     return encrypt(String.valueOf(data));
   }
 

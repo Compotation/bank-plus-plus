@@ -7,7 +7,7 @@ import java.util.UUID;
 public class Account {
   private final List<Transaction> transactions;
   private final String name;
-  private Double balance;
+  private double balance;
   private final UUID id;
 
   public Account(String name) {
@@ -25,7 +25,7 @@ public class Account {
     return name;
   }
 
-  public Double getBalance() {
+  public double getBalance() {
     return balance;
   }
 
