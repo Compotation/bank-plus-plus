@@ -15,11 +15,18 @@
       </li>
     </ul>
   </nav>
+
+  <Avatar image="user.png" />
 </template>
 
 <script>
+import Avatar from "primevue/avatar";
+
 export default {
   name: "Header",
+  components: {
+    Avatar,
+  },
 };
 </script>
 
