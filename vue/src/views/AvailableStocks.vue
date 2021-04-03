@@ -51,7 +51,7 @@ export default {
         .then((data) => (this.stocks = data));
     },
     moneyFormat(value) {
-      return "$" + value.toFixed(2);
+      return "$" + parseFloat(value).toFixed(2);
     },
   },
   mounted() {
