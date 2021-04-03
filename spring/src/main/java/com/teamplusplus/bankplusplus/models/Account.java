@@ -7,7 +7,7 @@ import java.util.UUID;
 public class Account {
   private final List<Transaction> transactions;
   private final String name;
-  private final Double balance;
+  private Double balance;
   private final UUID id;
 
   public Account(String name) {
@@ -38,7 +38,10 @@ public class Account {
   }
 
   public void buyStock(String stockName, double stockPrice) {
-    transactions.add(0, new StockTransaction(stockName, stockPrice));
+    if ((balance - stockPrice) > 0) {
+      balance -= stockPrice;
+      transactions.add(0, new StockTransaction(stockName, stockPrice));
+    }
   }
 
   public void depositMoney(double amount) {
