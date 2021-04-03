@@ -32,5 +32,9 @@ li {
   display: flex;
   flex-direction: row;
   margin: 1rem;
+
+  border: aqua 1px solid;
+  padding: 1rem;
+  background-color: bisque;
 }
 </style>
