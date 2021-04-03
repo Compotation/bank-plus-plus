@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Button @click="getAccounts" icon="pi pi-refresh" />
+    <Button @click="fetchAccounts" icon="pi pi-refresh" />
 
     <Toolbar class="p-mb-4">
       <template #left>
@@ -13,11 +13,10 @@
       </template>
     </Toolbar>
 
-    <!-- TODO sort by id -->
     <DataTable ref="dt" :value="accounts" dataKey="name">
       <Column field="name" header="Name" :sortable="true">
         <template #body="slotProps">
-          <router-link :to="'/accounts/' + slotProps.data.name">{{
+          <router-link :to="'/accounts/' + slotProps.data.id">{{
             slotProps.data.name
           }}</router-link>
         </template>
@@ -57,19 +56,18 @@
 </template>
 
 <script>
+import AccountService from "@/services/account-service.js";
 export default {
   name: "AccountsList",
   data() {
     return {
-      accounts: [],
+      accounts: null,
       makingNewAccount: false,
     };
   },
   methods: {
-    getAccounts() {
-      fetch(process.env.VUE_APP_API + "/accounts", { credentials: "include" })
-        .then((response) => response.json())
-        .then((data) => (this.accounts = data));
+    fetchAccounts() {
+      AccountService.getAccounts().then((data) => (this.accounts = data));
     },
     openNew() {
       this.makingNewAccount = true;
@@ -79,16 +77,11 @@ export default {
     },
     createAccount() {
       this.makingNewAccount = false;
-      fetch(
-        process.env.VUE_APP_API + "/accounts" + "?name=" + this.accountName,
-        {
-          method: "POST",
-        }
-      );
+      AccountService.postNewAccount(this.accountName);
     },
   },
   mounted() {
-    this.getAccounts();
+    this.fetchAccounts();
   },
 };
 </script>

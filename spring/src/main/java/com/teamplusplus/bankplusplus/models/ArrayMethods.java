@@ -1,6 +1,7 @@
 package com.teamplusplus.bankplusplus.models;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ArrayMethods {
   /**
@@ -25,5 +26,16 @@ public class ArrayMethods {
     }
 
     return output;
+  }
+
+  public static List<?> removeEmpty(List<?> list) {
+    for (int i = 0; i < list.size(); i++) {
+      if (list.get(i) == null) {
+        list.remove(i);
+        i--;
+      }
+    }
+
+    return list;
   }
 }
