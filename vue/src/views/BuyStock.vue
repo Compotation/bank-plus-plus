@@ -50,6 +50,7 @@
 <script>
 import InputNumber from "primevue/inputnumber";
 import TransactionService from "@/services/transaction-service.js";
+import AccountService from "@/services/account-service.js";
 
 export default {
   name: "BuyStock",
@@ -66,14 +67,10 @@ export default {
 
   methods: {
     getStocks() {
-      fetch(process.env.VUE_APP_API + "/stocks", { credentials: "include" })
-        .then((response) => response.json())
-        .then((data) => (this.stocks = data));
+      TransactionService.getStocks().then((data) => (this.stocks = data));
     },
     getAccounts() {
-      fetch(process.env.VUE_APP_API + "/accounts", { credentials: "include" })
-        .then((response) => response.json())
-        .then((data) => (this.accounts = data));
+      AccountService.getAccounts().then((data) => (this.accounts = data));
     },
     refresh() {
       this.getStocks();

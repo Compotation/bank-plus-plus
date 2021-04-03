@@ -5,4 +5,7 @@ export default {
       `/${account}/transactions?stock=${ticker}&amount=${amount}`
     );
   },
+  getStocks() {
+    return APIService.get("/stocks");
+  },
 };

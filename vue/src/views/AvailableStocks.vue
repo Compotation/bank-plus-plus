@@ -30,6 +30,7 @@
 import DataView from "primevue/dataview";
 import DataViewLayoutOptions from "primevue/dataviewlayoutoptions";
 import Card from "primevue/card";
+import TransactionService from "@/services/transaction-service.js";
 
 export default {
   name: "AvailableStocks",
@@ -45,10 +46,7 @@ export default {
   },
   methods: {
     getStocks() {
-      // TODO stocks not shown
-      fetch(process.env.VUE_APP_API + "/stocks", { credentials: "include" })
-        .then((response) => response.json())
-        .then((data) => (this.stocks = data));
+      TransactionService.getStocks().then((data) => (this.stocks = data));
     },
     moneyFormat(value) {
       return "$" + parseFloat(value).toFixed(2);
