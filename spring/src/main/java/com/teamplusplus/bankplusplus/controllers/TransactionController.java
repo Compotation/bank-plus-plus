@@ -37,8 +37,10 @@ public class TransactionController {
   }
 
   @PostMapping("/{accountId}/transactions")
-  public void buy(@PathVariable String accountId, @RequestParam String stock) {
-    accountRepository.getAccount(accountId).buyStock(stock, ArrayMethods.findStockPrice(stocks, stock));
+  public void buy(@PathVariable String accountId, @RequestParam String stock, @RequestParam int amount) {
+    for (int i = 0; i < amount; i++) {
+      accountRepository.getAccount(accountId).buyStock(stock, ArrayMethods.findStockPrice(stocks, stock));
+    }
   }
 
   @GetMapping("/stocks")
