@@ -4,14 +4,17 @@ import com.teamplusplus.bankplusplus.crypto.Crypto;
 import com.teamplusplus.bankplusplus.crypto.DataEncrypt;
 import com.teamplusplus.bankplusplus.models.Account;
 import com.teamplusplus.bankplusplus.models.AccountRepository;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.constraints.Min;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
 @RestController
+@Validated
 public class AccountController {
   private final AccountRepository accountRepository;
   private final DataEncrypt dataEncrypt;
@@ -32,7 +35,7 @@ public class AccountController {
   }
 
   @PostMapping("/accounts")
-  public void addAccount(@RequestParam String name, @RequestParam Optional<Double> startingBalance) {
+  public void addAccount(@RequestParam String name, @RequestParam Optional<@Min(0) Double> startingBalance) {
     accountRepository.addAccount(name, startingBalance.orElse(0.0));
   }
 
