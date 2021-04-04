@@ -4,8 +4,12 @@ export default {
     return APIService.get("/accounts");
   },
 
-  postNewAccount(name) {
-    return APIService.post("/accounts?name=" + encodeURIComponent(name));
+  postNewAccount(name, startingBalance) {
+    return APIService.post(
+      `/accounts?name=${encodeURIComponent(
+        name
+      )}&startingBalance=${startingBalance}`
+    );
   },
 
   getAccount(id) {

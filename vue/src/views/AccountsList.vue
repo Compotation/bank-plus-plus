@@ -36,6 +36,17 @@
           <label for="name">Name of Account</label>
           <InputText id="name" type="text" v-model="accountName" />
         </div>
+
+        <div class="p-field">
+          <label for="startingBalance">Starting Balance</label>
+          <InputNumber
+            v-model="startingBalance"
+            :min="0"
+            mode="currency"
+            currency="USD"
+            locale="en-US"
+          />
+        </div>
       </div>
       <template #footer>
         <Button
@@ -57,8 +68,11 @@
 
 <script>
 import AccountService from "@/services/account-service.js";
+import InputNumber from "primevue/inputnumber";
+
 export default {
   name: "AccountsList",
+  components: { InputNumber },
   data() {
     return {
       accounts: null,
@@ -77,9 +91,10 @@ export default {
     },
     createAccount() {
       this.makingNewAccount = false;
-      AccountService.postNewAccount(this.accountName).then(() =>
-        this.fetchAccounts()
-      );
+      AccountService.postNewAccount(
+        this.accountName,
+        this.startingBalance
+      ).then(() => this.fetchAccounts());
     },
   },
   mounted() {
