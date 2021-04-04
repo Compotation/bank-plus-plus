@@ -21,6 +21,10 @@ public class AccountRepository {
     accounts.add(new Account(name));
   }
 
+  public void addAccount(String name, double startingBalance) {
+    accounts.add(new Account(name, startingBalance));
+  }
+
   public Account getAccount(String id) {
     for (Account account : accounts) {
       if (account.getId().toString().equals(id)) {

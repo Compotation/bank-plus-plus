@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 @RestController
 public class AccountController {
@@ -31,8 +32,8 @@ public class AccountController {
   }
 
   @PostMapping("/accounts")
-  public void addAccount(@RequestParam String name) {
-    accountRepository.addAccount(name);
+  public void addAccount(@RequestParam String name, @RequestParam Optional<Double> startingBalance) {
+    accountRepository.addAccount(name, startingBalance.orElse(0.0));
   }
 
   @GetMapping("/export")

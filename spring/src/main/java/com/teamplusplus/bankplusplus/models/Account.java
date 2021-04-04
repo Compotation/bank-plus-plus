@@ -17,6 +17,13 @@ public class Account {
     this.id = UUID.randomUUID();
   }
 
+  public Account(String name, double balance) {
+    this.name = name;
+    this.balance = balance;
+    this.transactions = new ArrayList<>();
+    this.id = UUID.randomUUID();
+  }
+
   public List<Transaction> getTransactions() {
     return transactions;
   }
