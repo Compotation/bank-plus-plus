@@ -21,7 +21,11 @@
           }}</router-link>
         </template>
       </Column>
-      <Column field="balance" header="Balance" :sortable="true"></Column>
+      <Column field="balance" header="Balance" :sortable="true">
+        <template #body="slotProps">
+          {{ moneyFormat(slotProps.data.balance) }}
+        </template>
+      </Column>
     </DataTable>
 
     <Dialog
@@ -95,6 +99,9 @@ export default {
         this.accountName,
         this.startingBalance
       ).then(() => this.fetchAccounts());
+    },
+    moneyFormat(value) {
+      return "$" + parseFloat(value).toFixed(2);
     },
   },
   mounted() {
