@@ -4,14 +4,15 @@ public class Stock {
     private String name;
     private String ticker;
     private double value;
+    private double percent;
 
-    public Stock(String name, String ticker, double value) {
+    public Stock(String name, String ticker, double value, double percent) {
         this.name = name;
         this.ticker = ticker;
         this.value = value;
     }
 
-    public Stock(String name, double value) {
+    public Stock(String name, double value, double percent) {
         this.name = name;
         this.ticker = makeTicker(name);
         this.value = value;
@@ -39,6 +40,10 @@ public class Stock {
 
     public void setValue(double newValue) {
         this.value = newValue;
+    }
+
+    public double updateValue() {
+        return ((Math.random < 0.5) ? value * (1+percent) : value * (1-percent));
     }
 
     public String makeTicker(String name) {
