@@ -63,7 +63,7 @@ public class ArrayMethods {
   }
   public static void stockUpdate(String[][] stockList) {
     for (int i = 0; i < stockList.length; i++) {
-      stockList[i][2] = (Math.random() < 0.5) ? stockList[i][2]*(1+stockList[i][3]) : stockList[i][2]*(1-stockList[i][3])
+      stockList[i][2] = (Math.random() < 0.5) ? Double.parseDouble(stockList[i][2])*(1+Double.parseDouble(stockList[i][3])) : stockList[i][2]*(1-Double.parseDouble(stockList[i][3]));
     }
   }
 }
