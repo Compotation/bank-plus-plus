@@ -13,7 +13,11 @@
       <li>
         <router-link to="/stocks">Stock Info</router-link>
       </li>
+      <li>
+        <a :href="api + '/export'" target="_blank">Export</a>
+      </li>
     </ul>
+
     <div id="status">
       <label>Login Status: </label>
       <Avatar :icon="avatarIcon" size="large" />
@@ -31,6 +35,7 @@ export default {
   data() {
     return {
       avatarIcon: "pi pi-spin pi-spinner",
+      api: process.env.VUE_APP_API,
     };
   },
   mounted() {
