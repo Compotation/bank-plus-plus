@@ -64,9 +64,9 @@ public class ArrayMethods {
   public static void stockUpdate() {
     for (int i = 0; i < ArrayMethods.stocks.length; i++) {
       if (Math.random() < 0.5) {
-        ArrayMethods.stocks[i][2] = String.valueOf(Math.abs(Double.parseDouble(ArrayMethods.stocks[i][2]) * (1 + Double.parseDouble(ArrayMethods.stocks[i][3]))));
+        ArrayMethods.stocks[i][2] = String.valueOf(Double.parseDouble(ArrayMethods.stocks[i][2]) * Math.abs(1 + Double.parseDouble(ArrayMethods.stocks[i][3])));
       } else {
-        ArrayMethods.stocks[i][2] = String.valueOf(Math.abs(Double.parseDouble(ArrayMethods.stocks[i][2]) * (1 - Double.parseDouble(ArrayMethods.stocks[i][3]))));
+        ArrayMethods.stocks[i][2] = String.valueOf(Double.parseDouble(ArrayMethods.stocks[i][2]) * Math.abs(1 - Double.parseDouble(ArrayMethods.stocks[i][3])));
       }
     }
     if (Double.parseDouble(ArrayMethods.stocks[9][2]) > 1000000000) {
