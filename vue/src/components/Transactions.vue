@@ -41,3 +41,18 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+table {
+  border-collapse: collapse;
+  border: 3px solid purple;
+}
+
+th {
+  border: 3px solid purple;
+}
+
+td {
+  border: 3px solid purple;
+}
+</style>
