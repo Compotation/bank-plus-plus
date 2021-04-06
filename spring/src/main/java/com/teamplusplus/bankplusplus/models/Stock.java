@@ -4,18 +4,20 @@ public class Stock {
     private String name;
     private String ticker;
     private double value;
-    private double percent;
+    private final double percent;
 
     public Stock(String name, String ticker, double value, double percent) {
         this.name = name;
         this.ticker = ticker;
         this.value = value;
+        this.percent = percent;
     }
 
     public Stock(String name, double value, double percent) {
         this.name = name;
         this.ticker = makeTicker(name);
         this.value = value;
+        this.percent = percent;
     }
 
     public String getName() {
