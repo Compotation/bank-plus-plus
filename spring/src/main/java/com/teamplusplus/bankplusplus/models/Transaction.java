@@ -1,6 +1,7 @@
 package com.teamplusplus.bankplusplus.models;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Transaction {
   private final LocalDateTime date;
@@ -11,8 +12,8 @@ public class Transaction {
     this.amount = amount;
   }
 
-  public LocalDateTime getDate() {
-    return date;
+  public String getDate() {
+    return date.format(DateTimeFormatter.ofPattern("MM-dd-yyyy HH:mm"));
   }
 
   public double getAmount() {
