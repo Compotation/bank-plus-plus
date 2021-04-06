@@ -12,7 +12,11 @@
     >
       <template #option="slotProps">
         <div>
-          <abbr>{{ slotProps.option[1] }} at ${{ slotProps.option[2] }}</abbr>
+          <abbr
+            >{{ slotProps.option[1] }} at ${{
+              moneyFormat(slotProps.option[2])
+            }}</abbr
+          >
         </div>
       </template>
     </Dropdown>
@@ -82,6 +86,9 @@ export default {
         this.selectedStock[1],
         this.quantityToBuy
       ).then(() => this.refresh());
+    },
+    moneyFormat(value) {
+      return parseFloat(value).toFixed(2);
     },
   },
   mounted() {
