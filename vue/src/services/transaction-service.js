@@ -8,4 +8,7 @@ export default {
   getStocks() {
     return APIService.get("/stocks");
   },
+  deposit(account, amount) {
+    return APIService.post(`/${account}/deposits?amount=${amount}`);
+  },
 };
