@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 
 @RestController
 public class MainController {
-  @GetMapping("/time")
+  @GetMapping({"/time", "/"})
   public LocalDateTime getTime() {
     return LocalDateTime.now();
   }
