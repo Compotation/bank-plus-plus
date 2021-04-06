@@ -23,6 +23,11 @@ public class TransactionController {
     accountRepository.getAccount(accountId).buyStock(stock, ArrayMethods.findStockPrice(stock), quantity);
   }
 
+  @PostMapping("/{accountId}/deposits")
+  public void deposit(@PathVariable String accountId, @RequestParam double amount) {
+    accountRepository.getAccount(accountId).depositMoney(amount);
+  }
+
   @GetMapping("/stocks")
   public String[][] getStocks() {
     return ArrayMethods.stocks;

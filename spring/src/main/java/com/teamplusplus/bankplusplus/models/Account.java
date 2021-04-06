@@ -8,7 +8,7 @@ public class Account {
   private final List<Transaction> transactions;
   private final String name;
   private final UUID id;
-  private final double balance;
+  private double balance;
 
   public Account(String name) {
     this.name = name;
@@ -54,5 +54,6 @@ public class Account {
 
   public void depositMoney(double amount) {
     transactions.add(0, new Transaction(amount));
+    balance += amount;
   }
 }
