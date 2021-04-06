@@ -19,10 +19,8 @@ public class TransactionController {
 
   @PostMapping("/{accountId}/transactions")
   @BuyConstraint
-  public void buy(@PathVariable String accountId, @RequestParam String stock, @RequestParam @Min(1) int amount) {
-    for (int i = 0; i < amount; i++) {
-      accountRepository.getAccount(accountId).buyStock(stock, ArrayMethods.findStockPrice(stock));
-    }
+  public void buy(@PathVariable String accountId, @RequestParam String stock, @RequestParam @Min(1) int quantity) {
+    accountRepository.getAccount(accountId).buyStock(stock, ArrayMethods.findStockPrice(stock), quantity);
   }
 
   @GetMapping("/stocks")

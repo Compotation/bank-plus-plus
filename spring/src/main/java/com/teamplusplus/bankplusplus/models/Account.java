@@ -7,8 +7,8 @@ import java.util.UUID;
 public class Account {
   private final List<Transaction> transactions;
   private final String name;
-  private double balance;
   private final UUID id;
+  private final double balance;
 
   public Account(String name) {
     this.name = name;
@@ -45,10 +45,11 @@ public class Account {
   }
 
   public void buyStock(String stockName, double stockPrice) {
-    if ((balance - stockPrice) > 0) {
-      balance -= stockPrice;
-      transactions.add(0, new StockTransaction(stockName, stockPrice));
-    }
+    transactions.add(0, new StockTransaction(stockName, stockPrice));
+  }
+
+  public void buyStock(String stockName, double stockPrice, int quantity) {
+    transactions.add(0, new StockTransaction(stockName, stockPrice, quantity));
   }
 
   public void depositMoney(double amount) {
