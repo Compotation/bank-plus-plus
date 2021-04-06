@@ -30,6 +30,7 @@ public class TransactionController {
 
   @GetMapping("/stocks")
   public String[][] getStocks() {
+    ArrayMethods.stockUpdate();
     return ArrayMethods.stocks;
   }
 }

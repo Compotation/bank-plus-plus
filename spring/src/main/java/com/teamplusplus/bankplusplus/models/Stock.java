@@ -30,10 +30,6 @@ public class Stock {
         return value;
     }
 
-    public double getPercent() {
-        return percent;
-    }
-
     public void setName(String newName) {
         this.name = newName;
     }
@@ -45,16 +41,6 @@ public class Stock {
     public void setValue(double newValue) {
         this.value = newValue;
     }
-
-    public void setPercent(double newPercent) {
-        this.percent = newPercent;
-    }
-
-    // public void updateValue() {
-    //     if (Math.random < 0.5)
-    //         setTicker(value * (1+percent));
-    //     setTicker(value * (1-percent));
-    // }
 
     public String makeTicker(String name) {
         String newName = "";
@@ -101,6 +87,6 @@ public class Stock {
     }
 
     public String[] toArray() {
-        return new String[]{name, ticker, String.valueOf(value)};
+        return new String[]{name, ticker, String.valueOf(value), String.valueOf(percent)};
     }
 }
