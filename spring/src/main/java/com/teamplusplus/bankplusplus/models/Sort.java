@@ -1,7 +1,8 @@
+package com.teamplusplus.bankplusplus.models;
+
 public class Sort {
     //insertion sort
-    public void sort(int arr[])
-    {
+    public void insertion(int[] arr) {
         int n = arr.length;
         for (int i = 1; i < n; ++i) {
             int key = arr[i];
@@ -19,16 +20,14 @@ public class Sort {
     }
 
     //selection sort
-    public void sort(int arr[])
-    {
+    public void selection(int[] arr) {
         int n = arr.length;
 
         // One by one move boundary of unsorted subarray
-        for (int i = 0; i < n-1; i++)
-        {
+        for (int i = 0; i < n - 1; i++) {
             // Find the minimum element in unsorted array
             int min_idx = i;
-            for (int j = i+1; j < n; j++)
+            for (int j = i + 1; j < n; j++)
                 if (arr[j] < arr[min_idx])
                     min_idx = j;
 
