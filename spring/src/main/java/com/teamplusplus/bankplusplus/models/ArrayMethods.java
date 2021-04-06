@@ -15,7 +15,7 @@ public class ArrayMethods {
       new Stock("Google", 2005.00, 0.09).toArray(),
       new Stock("EA", 140.00, 0.01).toArray(),
       new Stock("IBM", 133.00, 0.01).toArray(),
-      new Stock("Pied Piper", 0.07, 2.6).toArray(),
+      new Stock("Pied Piper", 0.07, 0.99).toArray(),
       new Stock("Aviato", 12.50, 0.01).toArray(),
       // with Ticker symbol
       new Stock("AT&T", "T", 30.47, 0.01).toArray(),
