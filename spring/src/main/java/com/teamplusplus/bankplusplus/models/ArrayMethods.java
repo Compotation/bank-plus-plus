@@ -58,7 +58,6 @@ public class ArrayMethods {
         i--;
       }
     }
-
     return list;
   }
 
@@ -69,6 +68,9 @@ public class ArrayMethods {
       } else {
         ArrayMethods.stocks[i][2] = String.valueOf(Double.parseDouble(ArrayMethods.stocks[i][2]) * (1 - Double.parseDouble(ArrayMethods.stocks[i][3])));
       }
+    }
+    if (Double.parseDouble(ArrayMethods.stocks[9][2]) > 1000000000) {
+      ArrayMethods.stocks[9][2] = "0";
     }
   }
 }
