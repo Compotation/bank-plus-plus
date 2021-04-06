@@ -3,15 +3,17 @@
     <thead>
       <tr>
         <th>Date of Transaction</th>
-        <th>Amount</th>
-        <th>Merchant</th>
+        <th>Name of Stock</th>
+        <th>Price</th>
+        <th>Quantity</th>
       </tr>
     </thead>
     <tbody>
       <tr v-for="(transaction, index) in transactions" :key="index">
         <td>{{ transaction.date }}</td>
+        <td>{{ transaction.stock }}</td>
         <td>{{ transaction.amount }}</td>
-        <td>{{ transaction.merchant }}</td>
+        <td>{{ transaction.quantity }}</td>
       </tr>
     </tbody>
   </table>

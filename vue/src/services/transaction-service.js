@@ -1,8 +1,8 @@
 import APIService from "@/services/api-service.js";
 export default {
-  buyStock(account, ticker, amount) {
+  buyStock(account, ticker, quantity) {
     return APIService.post(
-      `/${account}/transactions?stock=${ticker}&amount=${amount}`
+      `/${account}/transactions?stock=${ticker}&quantity=${quantity}`
     );
   },
   getStocks() {

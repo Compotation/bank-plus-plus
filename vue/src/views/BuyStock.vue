@@ -35,8 +35,8 @@
       </template>
     </Dropdown>
 
-    <label for="amount">Amount of Stocks to Buy</label>
-    <InputNumber v-model="amountToBuy" showButtons :min="1" />
+    <label for="amount">Quantity to Buy</label>
+    <InputNumber v-model="quantityToBuy" showButtons :min="1" />
 
     <Button
       label="Buy"
@@ -61,7 +61,7 @@ export default {
       accounts: [],
       selectedStock: null,
       selectedAccount: null,
-      amountToBuy: null,
+      quantityToBuy: null,
     };
   },
 
@@ -80,7 +80,7 @@ export default {
       TransactionService.buyStock(
         this.selectedAccount.id,
         this.selectedStock[1],
-        this.amountToBuy
+        this.quantityToBuy
       ).then(() => this.refresh());
     },
   },
